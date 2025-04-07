@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tarjeta de Cumpleaños </title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to right, #fbcfe8, #a5f3fc);
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+
+    .scene {
+      width: 300px;
+      height: 400px;
+      position: relative;
+      perspective: 1500px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+      cursor: pointer;
+    }
+
+    .card.open {
+      transform: rotateY(-180deg);
+    }
+
+    .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .front {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .back {
+  background: linear-gradient(135deg, #f9a8d4, #fef08a);
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+    .back h1 {
+      color: #be185d;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    .back p {
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scene">
+    <div class="card" onclick="abrirTarjeta(this)">
+      <div class="face front">
+        <img src="gato.png" alt="Gato con pastel" />
+      </div>
+      <div class="face back">
+        <h1>🎉 ¡Feliz Cumpleaños! 🎂</h1>
+        <p>Espero que este día esté lleno de ternura, alegría... Hoy es el día perfecto para recordarte lo increíble que eres. Qué este nuevo año de vida te traiga todo lo que deseas y mucho más. ¡Te mereces un sinfín de momentos felices! Disfruta de cada instante y sigue brillando con esa luz tan única que tienes. ¡Te quiero mucho! 💖✨</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function abrirTarjeta(card) {
+      card.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
